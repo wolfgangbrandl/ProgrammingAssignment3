@@ -1,12 +1,16 @@
 #wd <- file.path ("C:","Users","Wolfi","ProgrammingAssignment3")
-wd <- file.path ("C:","Users","wbrandl","coursera")
+wd <- file.path ("D:","Users","wbrandl","coursera","ProgrammingAssignment3")
 setwd(wd)
-source("HospitalFunction.R")
-wd <- file.path ("C:","Users","wbrandl","Desktop","coursera","rprog-data-ProgAssignment3-data")
+source("best.R")
+source("rankhospital.R")
+wd <- file.path ("D:","Users","wbrandl","Desktop","coursera","rprog-data-ProgAssignment3-data")
 
 setwd(wd)
 
 outcome <- read.csv("outcome-of-care-measures.csv", colClasses = "character")
+#debug(rankhospital)
+h <- rankhospital ("TX","heart failure", 4)
+h
 #debug(best)
 best("TX", "heart attack")
 #[1] "CYPRESS FAIRBANKS MEDICAL CENTER"
