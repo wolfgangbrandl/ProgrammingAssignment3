@@ -1,8 +1,4 @@
 rankhospital <- function(state, death, num = "best") {
-  ## Read outcome data
-  ## Check that state and outcome are valid
-  ## Return hospital name in that state with lowest 30-day death
-  ## rate
   ## Create factor variable to check for input
   ou <- c("heart attack","heart failure","pneumonia")
   ## Change State to factor to split afterwards
@@ -20,13 +16,18 @@ rankhospital <- function(state, death, num = "best") {
   group <- group_state[state]
   ## set the specified death rate from chr to numeric
   group[[1]][[n]] <- as.numeric(group[[1]][[n]])
+  ## get a data frame
   df_state_group <- group[[1]]
+  ## order the data frame
   ordered_df_state_group <- df_state_group[ order(df_state_group[,n],df_state_group[,2],na.last=NA),]
+  ## get valid number of hospitals
   number_of_hospital_in_state <- length(ordered_df_state_group[,n])
+  ## if input num too big return NA
   if (num > number_of_hospital_in_state | num <= 0 ) {
     hospital <- NA
     return (hospital)
   }
+  ## get a numeric ranking number
   if (num == "best") {
     rank <- 1
   }
@@ -36,5 +37,6 @@ rankhospital <- function(state, death, num = "best") {
   else {
     rank <- num
   }
+  ## get ranked hospital
   hospital <- ordered_df_state_group[[2]][[rank]]
 }

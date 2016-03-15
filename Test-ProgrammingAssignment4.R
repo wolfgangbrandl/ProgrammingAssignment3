@@ -3,12 +3,15 @@ wd <- file.path ("D:","Users","wbrandl","coursera","ProgrammingAssignment3")
 setwd(wd)
 source("best.R")
 source("rankhospital.R")
+source("rankall.R")
 wd <- file.path ("D:","Users","wbrandl","Desktop","coursera","rprog-data-ProgAssignment3-data")
 
 setwd(wd)
 
 outcome <- read.csv("outcome-of-care-measures.csv", colClasses = "character")
-#debug(rankhospital)
+#debug(rankall)
+j <- rankall ("heart attack",20)
+j
 h <- rankhospital ("TX","heart failure", 4)
 h
 #debug(best)
