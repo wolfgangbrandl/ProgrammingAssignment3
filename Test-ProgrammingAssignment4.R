@@ -9,7 +9,11 @@ wd <- file.path ("D:","Users","wbrandl","Desktop","coursera","rprog-data-ProgAss
 setwd(wd)
 
 outcome <- read.csv("outcome-of-care-measures.csv", colClasses = "character")
-#debug(rankall)
+#debug(rankhospital)
+r <- rankhospital("NC","heart attack","worst")
+r
+
+
 j <- rankall ("heart attack",20)
 j
 h <- rankhospital ("TX","heart failure", 4)

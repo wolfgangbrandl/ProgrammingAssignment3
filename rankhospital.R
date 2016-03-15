@@ -23,10 +23,7 @@ rankhospital <- function(state, death, num = "best") {
   ## get valid number of hospitals
   number_of_hospital_in_state <- length(ordered_df_state_group[,n])
   ## if input num too big return NA
-  if (num > number_of_hospital_in_state | num <= 0 ) {
-    hospital <- NA
-    return (hospital)
-  }
+  
   ## get a numeric ranking number
   if (num == "best") {
     rank <- 1
@@ -35,7 +32,12 @@ rankhospital <- function(state, death, num = "best") {
     rank <- number_of_hospital_in_state
   }
   else {
-    rank <- num
+    inum <- as.numeric(num)
+    if (inum > number_of_hospital_in_state | inum <= 0 ) {
+      hospital <- NA
+      return (hospital)
+    }
+    rank <- inum
   }
   ## get ranked hospital
   hospital <- ordered_df_state_group[[2]][[rank]]
