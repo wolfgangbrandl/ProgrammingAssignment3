@@ -1,7 +1,8 @@
-wd <- file.path ("C:","Users","Wolfi","ProgrammingAssignment3")
+#wd <- file.path ("C:","Users","Wolfi","ProgrammingAssignment3")
+wd <- file.path ("C:","Users","wbrandl","coursera")
 setwd(wd)
 source("HospitalFunction.R")
-wd <- file.path ("C:","Users","Wolfi","Desktop","coursera","week-4","ProgAssignment3")
+wd <- file.path ("C:","Users","wbrandl","Desktop","coursera","rprog-data-ProgAssignment3-data")
 
 setwd(wd)
 
